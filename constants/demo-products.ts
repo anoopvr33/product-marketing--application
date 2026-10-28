@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import { type ShopProduct } from "@/types/product";
 
 export const demoProducts: Product[] = [
   {
@@ -146,5 +147,95 @@ export const demoProducts: Product[] = [
         src: "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=85",
       },
     ],
+  },
+];
+
+export const products: ShopProduct[] = [
+  {
+    id: 1,
+    name: "Men's Casual Shirt",
+    category: "Men",
+    price: 1299,
+    originalPrice: 1899,
+    image:
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=700&q=85",
+    isNew: true,
+  },
+  {
+    id: 2,
+    name: "Women's Maxi Dress",
+    category: "Women",
+    price: 1999,
+    image:
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85",
+  },
+  {
+    id: 3,
+    name: "Sneakers",
+    category: "Accessories",
+    price: 2499,
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",
+    isNew: true,
+  },
+  {
+    id: 4,
+    name: "Denim Jacket",
+    category: "Men",
+    price: 1799,
+    image:
+      "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=85",
+  },
+  {
+    id: 5,
+    name: "Handbag",
+    category: "Accessories",
+    price: 1599,
+    originalPrice: 1999,
+    image:
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85",
+  },
+  {
+    id: 6,
+    name: "Hoodie",
+    category: "Men",
+    price: 2299,
+    image:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=85",
+  },
+  {
+    id: 7,
+    name: "Linen Shirt",
+    category: "Men",
+    price: 1499,
+    image:
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=700&q=85",
+    isNew: true,
+  },
+  {
+    id: 8,
+    name: "Sunglasses",
+    category: "Accessories",
+    price: 899,
+    originalPrice: 1059,
+    image:
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=85",
+  },
+  {
+    id: 9,
+    name: "Summer Dress",
+    category: "Women",
+    price: 1799,
+    image:
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=85",
+    isNew: true,
+  },
+  {
+    id: 10,
+    name: "Wrist Watch",
+    category: "Accessories",
+    price: 2999,
+    image:
+      "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=700&q=85",
   },
 ];

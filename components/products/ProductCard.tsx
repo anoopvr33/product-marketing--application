@@ -45,13 +45,14 @@ export default function ProductCard({
       className="group relative mb-[10px] w-full min-w-0 break-inside-avoid"
     >
       {/* Original image card */}
-      <div className="group-hover:scale-105 transition-transform duration-500 relative h-auto w-full overflow-hidden rounded-xl bg-neutral-100 sm:h-auto lg:h-auto">
+      <div className=" relative h-auto w-full overflow-hidden rounded-xl bg-neutral-100 sm:h-auto lg:h-auto">
         <Link
           href={productHref}
           aria-label={`View ${product.name}`}
           className="block h-full w-full"
         >
           {media.type === "video" ? (
+            <> <p className=" absolute z-1 m-2">video</p>
             <video
               ref={videoRef}
               src={media.src}
@@ -61,7 +62,7 @@ export default function ProductCard({
               playsInline
               preload="metadata"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            /></>
           ) : (
             <img
               src={media.src}
@@ -88,7 +89,7 @@ export default function ProductCard({
             }
             aria-pressed={isFavorite}
             onClick={() => setIsFavorite((value) => !value)}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/85 text-white transition hover:scale-105"
+            className="flex h-9 w-9 shrink-0 hidden sm:flex items-center justify-center rounded-full bg-black/85 text-white transition hover:scale-105"
           >
             <Heart
               size={19}

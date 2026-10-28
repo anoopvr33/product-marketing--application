@@ -20,3 +20,17 @@ export type Product = {
     profileImage?: string;
   };
 };
+
+export interface ShopProduct {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  isNew?: boolean;
+}
+export interface ProductCardProps {
+  product: ShopProduct;
+  onClick: () => void;
+}

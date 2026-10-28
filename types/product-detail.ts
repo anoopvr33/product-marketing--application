@@ -22,3 +22,4 @@ export interface DetailShop {
   location: string;
   products: string[];
 }
+

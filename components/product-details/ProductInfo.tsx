@@ -22,7 +22,7 @@ export default function ProductInfo({ product }: Props) {
   return (
     <section className="grid gap-8 lg:grid-cols-2 lg:gap-12">
       <div>
-        <div className="overflow-hidden md:w-150 md:h-150 rounded-2xl bg-neutral-900">
+        <div className="overflow-hidden md:w-150 md:h-150 rounded-2xl ">
           <img
             src={product.images[activeImage]}
             alt={product.name}

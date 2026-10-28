@@ -20,7 +20,7 @@ export default function ProductFilters({
           onClick={() => onCategoryChange(item)}
           className={`shrink-0 rounded-full border px-4 py-2 text-sm transition ${
             category === item
-              ? "border-white bg-white text-black"
+              ? "border-white bg-gray-100 text-black"
               : "border-white/10 bg-[#171717] text-neutral-300 hover:bg-[#252525]"
           }`}
         >

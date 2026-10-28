@@ -73,7 +73,7 @@ export default function ProductFeed() {
         <ProductFilters category={category} onCategoryChange={setCategory} />
         <button
           type="button"
-          className="rounded-full border m-auto mr-0 border-white/10 p-3 text-neutral-300 hover:bg-white/10"
+          className="rounded-full border m-auto bg-gray-100 mr-0 border-white/10 p-3 text-gray-500 hover:bg-black/10"
           aria-label="Product filters"
           onClick={() =>
             document
@@ -96,8 +96,8 @@ export default function ProductFeed() {
             onClick={() => setMediaType(type)}
             className={`rounded-full px-3 py-1.5 text-xs transition ${
               mediaType === type
-                ? "bg-white text-black"
-                : "border border-white/10 text-neutral-400 hover:bg-white/10"
+                ? "bg-gray-100 text-black"
+                : "border border-white/10 text-gray-500 hover:bg-black/10"
             }`}
           >
             {type === "All" ? "All media" : type}
@@ -108,11 +108,11 @@ export default function ProductFeed() {
         {products.length} products
       </p>
       {products.length > 0 ? (
-        <div className="w-full min-w-0 max-w-full columns-2 gap-[10px] sm:columns-3 lg:columns-4 xl:columns-5">
+        <div className="w-full min-w-0 max-w-full columns-3 gap-[10px] sm:columns-3 lg:columns-4 xl:columns-5">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div> 
+        </div>
       ) : (
         <div className="rounded-2xl border border-white/10 py-20 text-center">
           <p className="text-lg font-medium text-white">No products found</p>
