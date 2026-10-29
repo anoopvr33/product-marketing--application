@@ -56,25 +56,34 @@ components/
     └── TrendingProducts/
         ├── index.tsx
         └── TrendingProductCard.tsx
-└── shops/
+├── shops/
     └── ShopProfile/
         ├── index.tsx
         ├── ShopHeader.tsx
         ├── ShopProducts.tsx
-        └── ProductCard.tsx
-        └── ProductViewer.tsx
+        ├── ProductCard.tsx
+        ├── ProductViewer.tsx
         └── ProductToolbar.tsx
-└── product-details/
+├── product-details/
     ├── index.tsx
     ├── ProductInfo.tsx
     ├── ShopInfo.tsx
     └── RelatedProducts.tsx
 ├── layout/
     └── Navbar/              # Reuse existing Navbar
-└── products/
+├── products/
+    └── AddProduct/
+        ├── index.tsx
+        ├── ProductFields.tsx 
+        ├── ProductMedia.tsx 
+        └── ProductPreview.tsx 
     ├── ProductFeed.tsx
     ├── ProductCard.tsx
     └── ProductFilters.tsx
+└── ui/
+    ├── Input.tsx
+    ├──Select.tsx
+    └──Textarea.tsx
 
 constants/
 └── product-detail-demo.ts
@@ -84,4 +93,3 @@ types/
 └── product-detail.ts
 └── product.ts
 
-ui/
