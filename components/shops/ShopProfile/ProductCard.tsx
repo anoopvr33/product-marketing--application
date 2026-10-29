@@ -27,7 +27,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           onClick();
         }
       }}
-      className="group min-w-0 cursor-pointer overflow-hidden rounded-xl border border-[#1c2735] bg-gradient-to-b from-[#0d1521] to-[#080d15] transition-colors hover:border-[#35435a]"
+      className="group min-w-0 cursor-pointer overflow-hidden rounded-xl  bg-gradient-to-b from-[#0d1521] to-[#091b37] transition-colors hover:border-[#35435a]"
     >
       <div className="relative aspect-[4/4.5] overflow-hidden bg-[#111827]">
         <img

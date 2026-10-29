@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Plus, SlidersHorizontal, ChevronDown, X } from "lucide-react";
 import ProductCard from "./ProductCard";
 import ProductViewer from "./ProductViewer";
@@ -9,6 +10,7 @@ import { products } from "@/constants/demo-products";
 const tabs = ["All Products", "Men", "Women", "Accessories", "New Arrivals"];
 
 export default function ShopProducts() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("All Products");
   const [sortBy, setSortBy] = useState("latest");
   const [showFilters, setShowFilters] = useState(false);
@@ -70,8 +72,8 @@ export default function ShopProducts() {
                 }}
                 className={`shrink-0 border-b-2 px-3 py-3 text-sm font-medium transition sm:px-4 ${
                   activeTab === tab
-                    ? "border-violet-500 text-white"
-                    : "border-transparent text-gray-400 hover:text-white"
+                    ? "border-violet-500 text-black"
+                    : "border-transparent text-gray-400 hover:text-black"
                 }`}
               >
                 {tab}
@@ -117,8 +119,8 @@ export default function ShopProducts() {
               aria-expanded={showFilters}
               className={`inline-flex h-10 items-center gap-2 rounded-xl border px-3 text-sm transition ${
                 showFilters
-                  ? "border-violet-500 bg-violet-500/10 text-white"
-                  : "border-[#354052] text-gray-200 hover:bg-[#151e2d]"
+                  ? "border-violet-500 bg-violet-500/10 text-black"
+                  : "border-[#354052] text-gray-500 hover:bg-[#151e2d]"
               }`}
             >
               <SlidersHorizontal size={16} />
@@ -127,9 +129,7 @@ export default function ShopProducts() {
 
             <button
               type="button"
-              onClick={() =>
-                alert("Connect this button to your product upload page.")
-              }
+              onClick={() => router.push("/products/add")}
               className="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 text-sm font-semibold text-white transition hover:bg-violet-500 sm:flex-none"
             >
               <Plus size={18} />
@@ -222,7 +222,7 @@ export default function ShopProducts() {
           </div>
         ) : (
           <div className="rounded-xl border border-[#1c2735] bg-[#0b111c] py-16 text-center">
-            <p className="text-base font-medium text-gray-200">
+            <p className="text-base font-medium text-gray-400">
               No products found
             </p>
             <p className="mt-2 text-sm text-gray-500">

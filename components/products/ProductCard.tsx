@@ -42,17 +42,16 @@ export default function ProductCard({
     <article
       onMouseEnter={playVideo}
       onMouseLeave={pauseVideo}
-      className="group relative mb-[10px] w-full min-w-0 break-inside-avoid"
+      className="group relative min-w-0"
     >
-      {/* Original image card */}
-      <div className=" relative h-auto w-full overflow-hidden rounded-xl bg-neutral-100 sm:h-auto lg:h-auto">
+      {/* Product image: identical dimensions for every card */}
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-neutral-100">
         <Link
           href={productHref}
           aria-label={`View ${product.name}`}
-          className="block h-full w-full"
+          className="absolute inset-0 block"
         >
           {media.type === "video" ? (
-            <> <p className=" absolute z-1 m-2">video</p>
             <video
               ref={videoRef}
               src={media.src}
@@ -62,7 +61,7 @@ export default function ProductCard({
               playsInline
               preload="metadata"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            /></>
+            />
           ) : (
             <img
               src={media.src}
@@ -73,11 +72,15 @@ export default function ProductCard({
           )}
         </Link>
 
-        {/* Original gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
+        {media.type === "video" && (
+          <span className="pointer-events-none absolute left-2 top-2 rounded-full bg-black/60 px-2 py-1 text-[10px] font-medium text-white">
+            VIDEO
+          </span>
+        )}
 
-        {/* Price and like button */}
-        <div className="absolute bottom-3 left-2 right-2 z-10 flex items-center justify-between gap-2 sm:bottom-4 sm:left-3 sm:right-3">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+
+        <div className="absolute bottom-2 left-2 right-2 z-10 flex items-center justify-between gap-2 sm:bottom-3 sm:left-3 sm:right-3">
           <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-black shadow-sm sm:px-3 sm:text-sm">
             ₹{product.price.toLocaleString("en-IN")}
           </span>
@@ -89,22 +92,31 @@ export default function ProductCard({
             }
             aria-pressed={isFavorite}
             onClick={() => setIsFavorite((value) => !value)}
-            className="flex h-9 w-9 shrink-0 hidden sm:flex items-center justify-center rounded-full bg-black/85 text-white transition hover:scale-105"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/95 text-neutral-900 shadow-sm transition hover:scale-105"
           >
             <Heart
-              size={19}
+              size={18}
               className={isFavorite ? "fill-rose-500 text-rose-500" : ""}
             />
           </button>
         </div>
       </div>
 
-      {/* Desktop hover panel.
-          Absolutely positioned so cards below never move. */}
-      <div className="pointer-events-none absolute inset-x-0 top-[100%] z-50 hidden -translate-y-1 rounded-xl bg-[#171717] p-3 text-white opacity-0 shadow-2xl transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 md:block">
-        {/* Shop owner and shop name */}
+      {/* Normal card details */}
+      {/* <div className="pt-2">
+        <p className="truncate text-sm font-semibold text-neutral-900 dark:text-white">
+          {product.brand}
+        </p>
+        <p className="mt-0.5 truncate text-xs text-neutral-500">
+          {product.name}
+        </p>
+      </div> */}
+
+      {/* Hover details: directly below the image, without covering
+          another grid column or creating a dark empty area */}
+      <div className="pointer-events-none absolute left-0 right-0 top-full z-50 hidden rounded-xl border border-neutral-200 bg-white p-3 text-neutral-900 opacity-0 shadow-xl transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:translate-y-1 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-1 group-focus-within:opacity-100 md:block dark:border-neutral-700 dark:bg-neutral-900 dark:text-white">
         <Link href={shopHref} className="flex min-w-0 items-center gap-2">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-800 ring-1 ring-white/15">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
             {product.shopOwner?.profileImage ? (
               <img
                 src={product.shopOwner.profileImage}
@@ -117,21 +129,17 @@ export default function ProductCard({
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-semibold hover:underline">
-              {product.brand}
-            </p>
-
+            <p className="truncate text-sm font-semibold">{product.brand}</p>
             {product.shopOwner?.name && (
-              <p className="truncate text-xs text-neutral-400">
+              <p className="truncate text-xs text-neutral-500">
                 {product.shopOwner.name}
               </p>
             )}
           </div>
         </Link>
 
-        {/* Product details */}
-        <div className="mt-3 border-t border-white/10 pt-3">
-          <p className="text-xs text-neutral-400">{product.category}</p>
+        <div className="mt-3 border-t border-neutral-200 pt-3 dark:border-neutral-700">
+          <p className="text-xs text-neutral-500">{product.category}</p>
 
           <Link
             href={productHref}
@@ -140,12 +148,12 @@ export default function ProductCard({
             {product.name}
           </Link>
 
-          <p className="mt-2 flex items-center gap-1.5 text-xs text-neutral-400">
-            <MapPin size={13} className="shrink-0" />
+          <p className="mt-2 flex items-start gap-1.5 text-xs text-neutral-500">
+            <MapPin size={13} className="mt-0.5 shrink-0" />
             <span>{product.location}</span>
           </p>
 
-          <p className="mt-2 text-xs text-neutral-500">{postedAt}</p>
+          <p className="mt-2 text-xs text-neutral-400">{postedAt}</p>
         </div>
       </div>
     </article>

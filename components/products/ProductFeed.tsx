@@ -108,7 +108,7 @@ export default function ProductFeed() {
         {products.length} products
       </p>
       {products.length > 0 ? (
-        <div className="w-full min-w-0 max-w-full columns-3 gap-[10px] sm:columns-3 lg:columns-4 xl:columns-5">
+        <div className="grid w-full grid-cols-2 items-start gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

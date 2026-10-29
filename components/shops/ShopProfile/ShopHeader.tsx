@@ -13,7 +13,7 @@ import {
 
 export default function ShopHeader() {
   return (
-    <section className="mb-8 grid grid-cols-1 gap-6 rounded-xl border border-[#1c2735] bg-gradient-to-br from-[#0d1521] to-[#080d15] p-4 sm:p-5 lg:grid-cols-[284px_minmax(0,1fr)_315px] lg:gap-7">
+    <section className="mb-8 grid grid-cols-1 gap-6 rounded-xl  border-[#1c2735] bg-gradient-to-br from-[#f6f5ff] to-[#06224c13] p-4 sm:p-5 lg:grid-cols-[284px_minmax(0,1fr)_315px] lg:gap-7">
       {/* Shop picture */}
       <div className="relative aspect-[4/4.2] overflow-hidden rounded-xl  sm:aspect-[16/9] lg:aspect-auto lg:min-h-[285px]">
         <Image
@@ -31,17 +31,17 @@ export default function ShopHeader() {
       {/* Shop details */}
       <div className="flex min-w-0 flex-col justify-center lg:border-r lg:border-[#263142] lg:pr-7">
         <div className="mb-2 flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-medium text-emerald-300">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-emerald-300">
             <BadgeCheck size={15} />
             Verified Shop
           </span>
         </div>
 
-        <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">
           Fashion Hub
         </h1>
 
-        <p className="mt-2 text-sm text-gray-300 sm:text-base">
+        <p className="mt-2 text-sm text-gray-500 sm:text-base">
           “Trendy Styles <span className="mx-1.5">•</span> Better You”
         </p>
 
@@ -51,9 +51,9 @@ export default function ShopHeader() {
           <span className="text-gray-400">(124 reviews)</span>
         </div>
 
-        <div className="mt-5 space-y-3 text-sm text-gray-300">
+        <div className="mt-5 space-y-3 text-sm text-gray-500">
           <div className="flex items-start gap-3">
-            <MapPin size={18} className="mt-0.5 shrink-0 text-gray-300" />
+            <MapPin size={18} className="mt-0.5 shrink-0 text-gray-500" />
             <span>123 MG Road, Kochi, Kerala - 682016</span>
           </div>
 
@@ -79,7 +79,7 @@ export default function ShopHeader() {
             (category) => (
               <span
                 key={category}
-                className="rounded-full border border-[#303b4d] bg-[#1b2535] px-3 py-1.5 text-xs text-gray-300"
+                className="rounded-full border border-[#303b4d] bg-[#1b2535] px-3 py-1.5 text-xs text-gray-200"
               >
                 {category}
               </span>
@@ -110,7 +110,7 @@ export default function ShopHeader() {
           </a>
         </div>
 
-        <p className="mt-4 text-sm leading-[1.7] text-gray-300">
+        <p className="mt-4 text-sm leading-[1.7] text-gray-500">
           Fashion Hub brings you the latest trends in clothing and accessories.
           Quality products, reasonable prices and a great shopping experience —
           all in one place.
